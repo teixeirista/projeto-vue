@@ -1,7 +1,7 @@
 <template>
 	<div class="main">
 			<h1 class="mt-3">Upload de arquivos</h1>
-			<br><br><br>
+			<br><br>
 			<input @change="newfile" type="file">
 			<br><br>
 			<button type="submit" class="btn btn-primary" @click.prevent="upload">Upload</button>
@@ -52,7 +52,6 @@ export default {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	
 }
 
 </style>

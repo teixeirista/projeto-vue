@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import LoginComponent from './pages/views/LoginComponent'
 import HomeComponent from './pages/views/HomeComponent'
 import Upload from './pages/views/Upload'
+import Guard from './services/middleware.js'
 
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
@@ -18,8 +19,8 @@ Vue.use(VueRouter)
 
 const routes = [
   { path: '/', name:'login', component: LoginComponent },
-  { path: '/home', name:'home', component: HomeComponent },
-  { path: '/upload', name:'upload', component: Upload }
+  { path: '/home', name:'home', component: HomeComponent, beforeEnter: Guard.auth },
+  { path: '/upload', name:'upload', component: Upload, beforeEnter: Guard.auth  }
 ]
 
 const router = new VueRouter({
