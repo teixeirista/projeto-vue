@@ -18,9 +18,9 @@ Vue.config.productionTip = false
 Vue.use(VueRouter)
 
 const routes = [
-  { path: '/', name:'login', component: LoginComponent },
-  { path: '/home', name:'home', component: HomeComponent, beforeEnter: Guard.auth },
-  { path: '/upload', name:'upload', component: Upload, beforeEnter: Guard.auth  }
+  { path: '/', name:'login', component: LoginComponent }, //Rota de login
+  { path: '/home', name:'home', component: HomeComponent, beforeEnter: Guard.auth }, //Rota da lista de arquivos
+  { path: '/upload', name:'upload', component: Upload, beforeEnter: Guard.auth  } //Rota de upload de arquivos
 ]
 
 const router = new VueRouter({

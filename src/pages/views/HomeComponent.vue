@@ -14,23 +14,23 @@
 
 <script>
 
-import api from '@/services/api.js';
-
+import api from '@/services/api.js'; //Importa o endereço base da api
 
 export default {
 	name: 'HomeComponent',
 
 	data() {
 		return {
-			arquivos: ''
+			arquivos: '' //Variável que salva a lista de arquivos
 		}
 	},
 
 	methods: {
+		//Método que lista os arquivos
 		list() {
+			//Realiza uma requisição para receber a lista de arquivos através da api
 			api.get('/arquivo').then(response => {
-				console.log(response.data);
-				this.arquivos = response.data;
+				this.arquivos = response.data; //Salva a lista de arquivos na variável
 			});
 		}
 	}

@@ -17,10 +17,9 @@
 
 <script>
 
-import api from '@/services/api.js';
+import api from '@/services/api.js'; //Importa o endereço base da api
 
-var em;
-var pw;
+var em, pw; //Variáveis auxiliares para guardar o e-mail e a senha digitados pelo usuário
 
 export default {
 	name: 'LoginComponent',
@@ -32,20 +31,16 @@ export default {
 	},
 
 	methods: {
-		login() {
-			console.log('Login');
+		login() { //Método de login
+			em = document.getElementById('email1').value; //Recebe o e-mail do formulário
+			pw = document.getElementById('password1').value; //Recebe a senha do formulário
 
-			em = document.getElementById('email1').value
-			pw = document.getElementById('password1').value;
-			
-			console.log(em);
-			console.log(pw);
-
+			//Realiza o login através da api utilizando o método post
 			api.post('/auth/login', {email: em, password: pw}).then(response => {
-				console.log(response.data);
-				localStorage.access_token = response.data.access_token;
+				localStorage.access_token = response.data.access_token; //Salva o token em uma variável local
+				//Salva o token nas configurações padrão da api usando o axios
 				api.defaults.headers.common['Authorization'] = `Bearer ${localStorage.access_token}`
-				this.$router.push('/home');
+				this.$router.push('/home'); //Muda a rota para a tela que exibe os arquivos
 			})
 		}
 	}
