@@ -17,11 +17,11 @@
 import api from '@/services/api.js'; //Importa o endereço base da api
 
 export default {
-	name: 'HomeComponent',
+	name: 'List',
 
 	data() {
 		return {
-			arquivos: '' //Variável que salva a lista de arquivos
+			arquivos: '', //Variável que salva a lista de arquivos
 		}
 	},
 

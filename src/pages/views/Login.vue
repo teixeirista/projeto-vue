@@ -2,15 +2,15 @@
 	<div class="login">
 		<form class="main">
 			<h1 class="mt-3">Login</h1>
-				<div class="form-group">
-					<label for="exampleInputEmail1" class="titulo">Email</label>
-					<input type="email" class="form-control" id="email1" aria-describedby="emailHelp" placeholder="Email">
-				</div>
-				<div class="form-group">
-					<label for="exampleInputPassword1" class="titulo">Senha</label>
-					<input type="password" class="form-control" id="password1" placeholder="Senha">
-				</div>
-				<button type="submit" class="btn btn-primary mt-3" @click.prevent="login">Entrar</button>
+			<div class="form-group">
+				<label for="exampleInputEmail1" class="titulo">Email</label>
+				<input type="email" class="form-control" id="email1" aria-describedby="emailHelp" placeholder="Email">
+			</div>
+			<div class="form-group">
+				<label for="exampleInputPassword1" class="titulo">Senha</label>
+				<input type="password" class="form-control" id="password1" placeholder="Senha">
+			</div>
+			<button type="submit" class="btn btn-primary mt-3" @click.prevent="login">Entrar</button>
 		</form>
 	</div>
 </template>

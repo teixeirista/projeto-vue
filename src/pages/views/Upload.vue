@@ -5,7 +5,7 @@
 			<input @change="newfile" type="file">
 			<br><br>
 			<button type="submit" class="btn btn-primary" @click.prevent="upload">Upload</button>
-			<p id="mensagem">Mensagem</p>
+			<p id="mensagem">{{ mensagem }}</p>
 	</div>
 </template>
 
@@ -20,13 +20,13 @@ export default {
 	data() {
 		return {
 			file: '', //Variável que salva o arquivo a ser enviado
-			name: '' //Variável que salva o nome do arquivo a ser enviado
+			name: '', //Variável que salva o nome do arquivo a ser enviado
+			mensagem: '', //Variável que exibe a mensagem de sucesso
 		}
 	},
 
 	methods: {
 		newfile(event) {
-			console.log(event);
 			this.file = event.target.files[0];
 		},
 		
@@ -41,8 +41,7 @@ export default {
 			api.post('arquivo/create', form, {headers:{
 				'Content-Type': 'multipart/form-data'
 			}}).then(response => {
-				console.log(response.data);
-				//document.getElementById("mensagem").value = response.data; //Avisa que o arquivo foi carregado com sucesso
+				this.mensagem = response.data //Avisa que o arquivo foi carregado com sucesso
 			})
 		}
 	}
