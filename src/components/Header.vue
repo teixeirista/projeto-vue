@@ -6,7 +6,7 @@
 				<div v-else>
 					<a href="/#/home" class="links">Lista de arquivos</a>
 					<a href="/#/upload" class="links">Upload de arquivos</a>
-					<a href="/#/" @click="deslogar" class="links">Logout</a>
+					<a href="/#/" @click="logout" class="links">Logout</a>
 				</div>
 			</div>
 		</nav>
@@ -29,12 +29,12 @@ export default {
 
 	data() {
 		return {
-			logado: false //Variável usada para mostrar ou esconder os botões de login e logout, a depender de qual deles está ativo
+			logged: false //Variável usada para mostrar ou esconder os botões de login e logout, a depender de qual deles está ativo
 		}
 	},
 	methods: {
 		//Método que desloga
-		deslogar() {
+		logout() {
 			//Realiza uma requisição para deslogar através da api
 			api.post('/auth/logout').then(response => {
 				console.log(response.data); //Printa uma mensagem indicando que deslogou
