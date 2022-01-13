@@ -36,6 +36,7 @@ export default {
 		},
 		
 		upload() {
+			api.defaults.headers.common['Authorization'] = `Bearer ${localStorage.access_token}`
 
 			this.name = document.getElementById('name').value; //Recebe o nome do arquivo
 			this.description = document.getElementById('desc').value; //Recebe a descrição do arquivo
@@ -48,7 +49,7 @@ export default {
 			form.append('description', this.description)
 
 			//Realiza o upload de arquivos através da api
-			api.post('arquivo/create', form, {headers:{
+			api.post('file/create', form, {headers:{
 				'Content-Type': 'multipart/form-data'
 			}}).then(response => {
 				this.message = response.data //Avisa que o arquivo foi carregado com sucesso

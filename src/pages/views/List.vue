@@ -47,8 +47,9 @@ export default {
 	methods: {
 		//Método que lista os arquivos
 		list() {
+			api.defaults.headers.common['Authorization'] = `Bearer ${localStorage.access_token}`
 			//Realiza uma requisição para receber a lista de arquivos através da api
-			api.get('/arquivos').then(response => {
+			api.get('/files').then(response => {
 				this.arquivos = response.data; //Salva a lista de arquivos na variável
 			});
 		},

@@ -2,7 +2,10 @@
 	<header>
 		<nav>
 			<div class="itens">
-				<a href="/#/" v-if="!notLogged" class="links">Login</a>
+				<div v-if="!notLogged">
+					<a href="/#/" class="links">Login</a>
+					<a href="/#/register" class="links">Registrar</a>
+				</div>
 				<div v-else>
 					<a href="/#/home" class="links">Lista de arquivos</a>
 					<a href="/#/upload" class="links">Upload de arquivos</a>
@@ -23,7 +26,12 @@ export default {
 
   computed: {
     notLogged() {
-      return this.$route.name !== 'login';
+			if(this.$route.name !== 'login' && this.$route.name !== 'register') {
+				return true;
+			}
+			return false;
+			
+      //return this.$route.name !== 'login';
     }
   },
 
@@ -38,6 +46,7 @@ export default {
 			//Realiza uma requisição para deslogar através da api
 			api.post('/auth/logout').then(response => {
 				console.log(response.data); //Printa uma mensagem indicando que deslogou
+				localStorage.removeItem('access_token');
 			})
 		},
 	},
