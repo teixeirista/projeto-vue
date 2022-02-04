@@ -1,23 +1,23 @@
 <template>
-	<div>
+	<div class="container">
 		<form class="main">
 			<h1 class="mt-3">Lista de arquivos</h1>
 
-			<table border="1px">
+			<table class="table table-striped table-bordered">
 				<tr>
-				<th>Nome</th>
-				<th>Descrição</th>
-				<th>Arquivo</th>
-				<th>Visualizar</th>
-			</tr>
+					<th>Nome</th>
+					<th>Descrição</th>
+					<th>Arquivo</th>
+					<th>Visualizar</th>
+				</tr>
 
-			<tr v-for="(arq, idx) in arquivos" :key="idx">
-			<td>{{ arq.name }}</td>
-				<td>{{ arq.description }}</td>
-				<td>{{ arq.file }}</td>
-				<td><a :href="'/#/view?id=' + arq.id" class="links">Ver</a></td>
-				<!--<td><a @click.prevent="view(arq.id)">Ver</a></td>-->
-			</tr>
+				<tr v-for="(arq, idx) in arquivos" :key="idx">
+					<td>{{ arq.name }}</td>
+					<td>{{ arq.description }}</td>
+					<td>{{ arq.file }}</td>
+					<td><a :href="'/#/view?id=' + arq.id" class="links">Ver</a></td>
+					<!--<td><a @click.prevent="view(arq.id)">Ver</a></td>-->
+				</tr>
 
 			</table>
 
@@ -71,8 +71,11 @@ export default {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: center;
-	
+	align-items: center;	
+}
+
+table {
+  width: 60%;
 }
 
 </style>
